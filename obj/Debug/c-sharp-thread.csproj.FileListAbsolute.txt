@@ -1,2 +1,0 @@
-D:\DEV\c-sharp-thread\c-sharp-thread\bin\Debug\c-sharp-thread.exe.config
-D:\DEV\c-sharp-thread\bin\Debug\c-sharp-thread.exe.config
