@@ -1,9 +1,9 @@
-﻿# C# Threading
+﻿# C# Threading - Initiate tasks on another thread in .NET
 
-### Under construction 
-:construction: :construction: :construction: :construction: :construction:
 
-> Initiate tasks on another thread in .NET
+### UNDER CONSTRUCTION
+#:construction: :construction: :construction: :construction: :construction:
+
 
 - Asyncromous Delegates - sincce the beginning of .NET
 ```s
