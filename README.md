@@ -4,13 +4,15 @@
 # **:construction: :construction: :construction: :construction: :construction:**
 
 
-- Asyncromous Delegates - sincce the beginning of .NET
+### Asyncromous Delegates - sincce the beginning of .NET
+---
 ```s
 Action<string> d = BackgroundTask;
 d.BeginInvoke("BeginInvoke", null, null);
 ```
 
-- Thread Class 
+### Thread Class 
+---
 > Since the beginning of .NET
 
 > Use this approach if need a dedicated thread for a single task that is running for the lifetime 
@@ -24,7 +26,8 @@ t.Priority = ThreadPriority.AboveNormal;
 t.Start("Thread");
 ```
 
-- ThreadPool - Since .NET 1.1
+### ThreadPool - Since .NET 1.1
+---
 
 > The method run on a thread from the thread pool just call `QueueUserWorkItem`
 
@@ -36,7 +39,8 @@ t.Start("Thread");
 ThreadPool.QueueUserWorkItem(BackgroundTask, "ThreadPool");
 ```
 
-- BackgroundWorker Component - Since .NET 2
+### BackgroundWorker Component - Since .NET 2
+---
 
 > It covers all the basics of `reporting progress`, `cancellation`, `catching exceptions`, and `getting back onto the UI thread` so can update the user interface
 
@@ -49,19 +53,21 @@ backgroundWorker1.ReportProgress(30, progressMessage);
 
 
 
-### - Task Parallel Library (TPL) - introduced in .NET 4
+### Task Parallel Library (TPL) - introduced in .NET 4
 > same way that  kicked off a thread with the `ThreadPool`
 
 ```s
 Task.Run(() => BackgroundTask("TPL"));
 ```
 
-### - C# 5 async await - introduced with C# 5 and .NET 4.5
+### C# 5 async await - introduced with C# 5 and .NET 4.5
 > 
 ```s
 await Task.Run(() => xdoc.Load("http://feeds.feedburner.com/soundcode"));
 ```
 
+
+---
 reference:
 
 https://markheath.net/post/starting-threads-in-dotnet
