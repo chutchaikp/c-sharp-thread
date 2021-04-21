@@ -18,7 +18,8 @@ namespace c_sharp_thread
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new FormBackgroundWorker());
-            Application.Run(new mainfor ());
+
+            Application.Run(new FormTPL());
         }
     }
 

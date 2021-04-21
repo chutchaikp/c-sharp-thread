@@ -28,58 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.buttonRequestPost = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonRequestUser = new System.Windows.Forms.Button();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.labelPost = new System.Windows.Forms.Label();
+            this.buttonCancelUser = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // buttonRequestPost
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.buttonRequestPost.Location = new System.Drawing.Point(292, 12);
+            this.buttonRequestPost.Name = "buttonRequestPost";
+            this.buttonRequestPost.Size = new System.Drawing.Size(96, 23);
+            this.buttonRequestPost.TabIndex = 1;
+            this.buttonRequestPost.Text = "Request POST";
+            this.buttonRequestPost.UseVisualStyleBackColor = true;
+            this.buttonRequestPost.Click += new System.EventHandler(this.buttonPost_Click);
             // 
-            // button1
+            // buttonRequestUser
             // 
-            this.button1.Location = new System.Drawing.Point(16, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonRequestUser.Location = new System.Drawing.Point(27, 12);
+            this.buttonRequestUser.Name = "buttonRequestUser";
+            this.buttonRequestUser.Size = new System.Drawing.Size(104, 23);
+            this.buttonRequestUser.TabIndex = 3;
+            this.buttonRequestUser.Text = "Request USER";
+            this.buttonRequestUser.UseVisualStyleBackColor = true;
+            this.buttonRequestUser.Click += new System.EventHandler(this.buttonUser_Click);
             // 
-            // richTextBox1
+            // labelUser
             // 
-            this.richTextBox1.AutoSize = true;
-            this.richTextBox1.Location = new System.Drawing.Point(249, 52);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(35, 13);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "label2";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(27, 55);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(35, 13);
+            this.labelUser.TabIndex = 4;
+            this.labelUser.Text = "label1";
+            // 
+            // labelPost
+            // 
+            this.labelPost.AutoSize = true;
+            this.labelPost.Location = new System.Drawing.Point(292, 55);
+            this.labelPost.Name = "labelPost";
+            this.labelPost.Size = new System.Drawing.Size(35, 13);
+            this.labelPost.TabIndex = 5;
+            this.labelPost.Text = "label2";
+            // 
+            // buttonCancelUser
+            // 
+            this.buttonCancelUser.Location = new System.Drawing.Point(138, 12);
+            this.buttonCancelUser.Name = "buttonCancelUser";
+            this.buttonCancelUser.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelUser.TabIndex = 6;
+            this.buttonCancelUser.Text = "Cancel";
+            this.buttonCancelUser.UseVisualStyleBackColor = true;
+            this.buttonCancelUser.Click += new System.EventHandler(this.buttonCancelUser_Click);
             // 
             // FormTPL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 160);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(620, 497);
+            this.Controls.Add(this.buttonCancelUser);
+            this.Controls.Add(this.labelPost);
+            this.Controls.Add(this.labelUser);
+            this.Controls.Add(this.buttonRequestUser);
+            this.Controls.Add(this.buttonRequestPost);
             this.Name = "FormTPL";
             this.Text = "FormTPL";
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label richTextBox1;
+        private System.Windows.Forms.Button buttonRequestPost;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button buttonRequestUser;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Label labelPost;
+        private System.Windows.Forms.Button buttonCancelUser;
     }
 }

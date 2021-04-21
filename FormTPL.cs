@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,55 +14,56 @@ namespace c_sharp_thread
 {
     public partial class FormTPL : Form
     {
+        TaskScheduler uiScheduler;
         public FormTPL()
         {
             InitializeComponent();
+
+            uiScheduler = TaskScheduler.FromCurrentSynchronizationContext();
         }
-        public static double SumRootN(int root)
+       
+        void UpdateUI(User user)
         {
-            double result = 0;
-            for (int i = 1; i < 10000000; i++)
-            { result += Math.Exp(Math.Log(i) / root); }
-            return result;
+            Task.Factory.StartNew(
+                () => {
+                    this.labelUser.Text = user.email;
+                }, CancellationToken.None, TaskCreationOptions.None, uiScheduler);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void UpdateUI(Post post)
         {
-            richTextBox1.Text = "";
-            label1.Text = "Milliseconds: ";
+            Task.Factory.StartNew(
+                () => {
+                    this.labelPost.Text = post.title;
+                }, CancellationToken.None, TaskCreationOptions.None, uiScheduler);
 
-            var watch = Stopwatch.StartNew();
-            List<Task> tasks = new List<Task>();
-            for (int i = 2; i < 20; i++)
-            {
-                int j = i;
-                var t = Task.Factory.StartNew(() =>
+        }
+
+        private void buttonUser_Click(object sender, EventArgs e)
+        {
+            BusinessLayer2.ProcessUserData(13, (users) => {
+                foreach (var user in users)
                 {
-                    var result = SumRootN(j);
-                    richTextBox1.Invoke(new Action(
-                            () =>
-                            richTextBox1.Text += "root " + j.ToString() + " "
-                                  + result.ToString() + Environment.NewLine));
-                });
-                tasks.Add(t);
-            }
-
-            Task.Factory.ContinueWhenAll(tasks.ToArray(),
-                  result =>
-                  {
-                      var time = watch.ElapsedMilliseconds;
-                      label1.Invoke(new Action(() => label1.Text += time.ToString()));
-                  });
+                    UpdateUI(user);
+                    Task.Delay(800).Wait();
+                }
+            });
         }
 
-        //async void Update()
-        //{
-        //    var task = await Task.Run(() =>
-        //    {
-        //        return -1;
-        //    });
+        private void buttonPost_Click(object sender, EventArgs e)
+        {
+            BusinessLayer2.ProcessPostData(13, (posts) => {
+                foreach (var post in posts)
+                {
+                    UpdateUI(post);
+                    Task.Delay(1000).Wait();
+                }
+            });
+        }
 
-        //    this.label1.Text = task.ToString();
-        //}
+        private void buttonCancelUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
